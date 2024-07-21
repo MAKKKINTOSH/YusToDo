@@ -1,0 +1,12 @@
+{
+  "development": {
+    "use_env_variable": "DB_CONNECTION_STRING",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "define": {
+      "freeTableName": true,
+      "createdAt": false,
+      "updatedAt": false
+    }
+  }
+}

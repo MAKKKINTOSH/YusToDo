@@ -43,8 +43,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
-      - /app/node_modules
+      - ./backend/src:/app
     restart: unless-stopped
     command: npm run dev
 
