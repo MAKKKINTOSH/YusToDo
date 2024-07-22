@@ -1,15 +1,14 @@
-FROM node:20
+FROM node:20 as base
 
 WORKDIR /app
-
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends &&\
-    apt-get install curl
-
-COPY package.json package-lock.json ./
-
+RUN apt-get update
+COPY package*.json ./
 RUN npm install
-
 COPY . ./
+
+FROM base as production
+
+ENV NODE_PATH=./build
+RUN npm run build
 
 EXPOSE 8000
