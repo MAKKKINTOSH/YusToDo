@@ -1,7 +1,9 @@
 FROM node:20 as base
 
 WORKDIR /app
+
 RUN apt-get update
+
 COPY package*.json ./
 RUN npm install
 COPY . ./
