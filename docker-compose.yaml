@@ -38,15 +38,17 @@ services:
     container_name: api
     build:
       context: ./backend
+      target: base
     env_file:
       - ./.env
+    environment:
+      - POSTGRES_HOST=database
     ports:
       - "8000:8000"
     volumes:
-      - ./backend/src:/app
+      - ./backend:/app
     restart: unless-stopped
-    command: npm run dev
-
+    command: "npm run dev"
     depends_on:
       postgres:
         condition: service_healthy

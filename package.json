@@ -1,0 +1,16 @@
+{
+  "name": "yustodo",
+  "version": "1.0.0",
+  "description": "Task Manager. Maybe not ordinary.",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker compose build",
+    "rebuild": "docker compose down && docker compose up -d",
+    "up": "docker compose up -d",
+    "up-debug": "docker compose up",
+    "down": "docker compose down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
