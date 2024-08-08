@@ -1,7 +1,6 @@
 import "reflect-metadata"
 import {DataSource} from "typeorm";
 import "dotenv/config"
-import * as console from "node:console";
 
 const {POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, POSTGRES_HOST} = process.env;
 
