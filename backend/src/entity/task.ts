@@ -1,12 +1,12 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm"
-import {User} from "./User";
+import {User} from "./user";
 
 @Entity()
-export class Purpose {
+export class Task {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => User, (user) => user.purpose)
+    @ManyToOne(() => User, (user) => user.task)
     user: User
 
     @Column("varchar", {

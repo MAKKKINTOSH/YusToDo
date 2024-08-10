@@ -1,18 +1,12 @@
 import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToMany} from "typeorm"
-import {Purpose} from "./Purpose";
+import {Task} from "./task";
+import {Token} from "./token";
 
 @Entity()
 export class User {
 
     @PrimaryGeneratedColumn()
     id: number
-
-    @Column({
-        nullable: false,
-        unique: true,
-        length: 64
-    })
-    username: string
 
     @Column({
         nullable: false,
@@ -32,6 +26,9 @@ export class User {
 
     // RELATIONS
 
-    @OneToMany(() => Purpose, (purpose) => purpose.user)
-    purpose: Purpose
+    @OneToMany(() => Task, (task) => task.user)
+    task: Task
+
+    @OneToMany(() => Token, (token) => token.user)
+    token: Token
 }

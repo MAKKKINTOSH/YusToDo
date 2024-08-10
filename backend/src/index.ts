@@ -1,8 +1,10 @@
 import express, {Request, RequestHandler} from "express";
 import {AppDataSource} from "./db_connector";
 import * as console from "node:console";
-import {config} from "dotenv";
-
+import "dotenv/config"
+import cors from "cors"
+import cookieParser from "cookie-parser"
+import {Main} from "./routers/main";
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -15,6 +17,11 @@ AppDataSource.initialize()
     })
 
 app.use(express.json());
+app.use(cors())
+app.use(cookieParser())
+
+app.use("/api", Main);
+
 
 app.get("/", (req, res) => {
     res.status(200).json("BACKEND RABOTAET TI NE DEBIL");
